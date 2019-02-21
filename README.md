@@ -6,14 +6,8 @@ ci-actions-copyleft is a collection of tasks targetting ci pipelines with progra
 copyleft licenses, notably the GPLv3 library.
 
 ***Note:*** 
----
 Another library named [ci-actions](https://github.com/stephenmoloney/ci-actions) 
-has more actions which is more liberally licensed under 
-the [MIT](https://choosealicense.com/licenses/mit/) license.
-
-This library contains only those actions which respect the original copyleft license of
-the program to which the action has a close relationship. 
----
+has more actions which is more liberally licensed under the [MIT](https://choosealicense.com/licenses/mit/) license.
  
 The collections are outlined in the tables below with links to the readme of the specific action.
 
@@ -32,7 +26,6 @@ Run the tests
 ```shell
 bash test.sh
 ```
-
 ## License
 
 [GPLv3](LICENSE.txt)

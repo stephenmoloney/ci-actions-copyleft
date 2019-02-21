@@ -24,7 +24,6 @@ action "shellcheck" {
 }
 ```
 
-
 ### Gitlab-CI workflow example
 
 ```shell

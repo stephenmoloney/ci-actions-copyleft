@@ -24,7 +24,6 @@ action "hadolint" {
 }
 ```
 
-
 ### Gitlab-CI workflow example
 
 ```shell

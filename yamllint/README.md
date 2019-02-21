@@ -24,7 +24,6 @@ action "yamllint" {
 }
 ```
 
-
 ### Gitlab-CI workflow example
 
 ```shell
