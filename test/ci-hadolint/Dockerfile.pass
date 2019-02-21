@@ -1,0 +1,6 @@
+FROM alpine:3.9
+
+RUN \
+    apk update && apk add --no-cache bash=4.4.19-r1
+
+CMD ["bash", "-c"]

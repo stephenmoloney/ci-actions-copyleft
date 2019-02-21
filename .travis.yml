@@ -1,0 +1,43 @@
+---
+env:
+  global:
+    - WORKSPACE="/ci-actions-copyleft/workspace"
+    - HELM_VERSION="2.12.3"
+    - PRETTIER_VERSION="1.16.4"
+    - REMARK_VERSION="6.0.4"
+
+stages:
+  - yaml-lint
+  - markdown-lint
+  - test
+
+jobs:
+  include:
+    - stage: yaml-lint
+      language: bash
+      image: docker:18-git
+      before_script:
+        - docker pull smoloney/ci-actions-prettier:${PRETTIER_VERSION} > /dev/null
+      script:
+        - |
+          docker run --rm -v "${PWD}:${WORKSPACE}" "smoloney/ci-actions-prettier:${PRETTIER_VERSION}" \
+            --file-glob='*.y*ml' \
+            --exec-args='prettier --check --parser yaml --config ./.prettierrc.yml'
+
+    - stage: markdown-lint
+      language: bash
+      image: docker:18-git
+      before_script:
+        - docker pull smoloney/ci-actions-remark:${REMARK_VERSION} > /dev/null
+      script:
+        - |
+          docker run --rm -v "${PWD}:${WORKSPACE}" "smoloney/ci-actions-remark:${REMARK_VERSION}" \
+            --file-glob='*.md' \
+            --exec-args='remark --frail --rc-path ./.remarkrc' \
+            > /dev/null
+
+    - stage: test
+      language: bash
+      image: docker:18-git
+      script:
+        - bash test.sh
