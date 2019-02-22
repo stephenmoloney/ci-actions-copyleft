@@ -3,9 +3,9 @@
 set -eo pipefail
 
 CURRENT_DIR=${DOCKERFILE_PATH%"/Dockerfile"}
-CURRENT_REPO=${DOCKER_REPO#"index.docker.io/smoloney/ci-actions-copyleft-"}
+CURRENT_REPO=${DOCKER_REPO#"index.docker.io/smoloney/ci-actions-"}
 VERSION="$(cat ./Dockerfile  | sed -En "s/ARG VERSION=\"//p" | sed -En 's/"//p')"
-IMAGE="smoloney/ci-actions-copyleft-${CURRENT_REPO}:latest"
+IMAGE="smoloney/ci-actions-${CURRENT_REPO}:latest"
 RELATIVE_PATH="./"
 HOST_VOLUME_PATH="${PWD%/*}/test/ci-${CURRENT_REPO}"
 TEST_FILE="${PWD%/*}/test/${CURRENT_REPO}_tests.sh"

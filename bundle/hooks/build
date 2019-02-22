@@ -4,7 +4,7 @@ set -eo pipefail
 
 source ../common/functions.sh
 
-WORKSPACE=/ci-actions-copyleft/workspace
+WORKSPACE=/ci-actions/workspace
 CURRENT_DIR=${DOCKERFILE_PATH%"/Dockerfile"}
 
 cp ../common/*.sh ./

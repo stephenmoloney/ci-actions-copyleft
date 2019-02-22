@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-WORKSPACE=/ci-actions-copyleft/workspace
+WORKSPACE=/ci-actions/workspace
 CURRENT_DIR=${DOCKERFILE_PATH%"/Dockerfile"}
 
 cp ../common/*.sh ./

@@ -5,8 +5,8 @@ set -eo pipefail
 source ../common/functions.sh
 
 CURRENT_DIR=${DOCKERFILE_PATH%"/Dockerfile"}
-CURRENT_REPO=${DOCKER_REPO#"index.docker.io/smoloney/ci-actions-copyleft-"}
-IMAGE="smoloney/ci-actions-copyleft-${CURRENT_REPO}:latest"
+CURRENT_REPO=${DOCKER_REPO#"index.docker.io/smoloney/ci-actions-"}
+IMAGE="smoloney/ci-actions-${CURRENT_REPO}:latest"
 RELATIVE_PATH="./"
 BUNDLED_REPOS=(yamllint shellcheck hadolint)
 

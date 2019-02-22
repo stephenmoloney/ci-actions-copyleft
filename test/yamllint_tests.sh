@@ -7,7 +7,7 @@ RELATIVE_PATH="${RELATIVE_PATH:-./yamllint}"
 HOST_VOLUME_PATH=${4}
 HOST_VOLUME_PATH="${HOST_VOLUME_PATH:-${PWD}/test/ci-yamllint}"
 VERSION=${5}
-VERSION="${VERSION:-1.14.0}"
+VERSION="${VERSION:-1.15.0}"
 WORKSPACE=${6}
 WORKSPACE="${WORKSPACE:-/ci-actions/workspace}"
 
@@ -54,4 +54,5 @@ testInvalidYamlFails() {
 
   assertNotEquals "${fail}" ""
   assertContains "${fail}" "error"
+  assertContains "${fail}" "new-line-at-end-of-file"
 }

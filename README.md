@@ -15,7 +15,7 @@ The collections are outlined in the tables below with links to the readme of the
 
 | Linting Package                                                                                        | Purpose                           | Dockerhub Image Name                                                                         | Recent Image Tags          |
 | ------------------------------------------------------------------------------------------------------ | --------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------- |
-| [yamllint](https://github.com/stephenmoloney/ci-actions-copyleft/tree/master/yamllint/README.md)       | For linting yaml files            | [smoloney/ci-actions-yamllint](https://hub.docker.com/r/smoloney/ci-actions-yamllint)        | `latest`, `1.14.0`         | 
+| [yamllint](https://github.com/stephenmoloney/ci-actions-copyleft/tree/master/yamllint/README.md)       | For linting yaml files            | [smoloney/ci-actions-yamllint](https://hub.docker.com/r/smoloney/ci-actions-yamllint)        | `latest`, `1.15.0`         | 
 | [shellcheck](https://github.com/stephenmoloney/ci-actions-copyleft/tree/master/shellcheck/README.md)   | For linting shell scripts         | [smoloney/ci-actions-shellcheck](https://hub.docker.com/r/smoloney/ci-actions-shellcheck)    | `latest`, `0.6.0`          | 
 | [hadolint](https://github.com/stephenmoloney/ci-actions-copyleft/tree/master/hadolint/README.md)       | For linting dockerfiles           | [smoloney/ci-actions-hadolint](https://hub.docker.com/r/smoloney/ci-actions-hadolint)        | `latest`, `1.16.0`         | 
 

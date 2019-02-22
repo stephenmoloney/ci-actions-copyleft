@@ -1,7 +1,7 @@
 ---
 env:
   global:
-    - WORKSPACE="/ci-actions-copyleft/workspace"
+    - WORKSPACE="/ci-actions/workspace"
     - HELM_VERSION="2.12.3"
     - PRETTIER_VERSION="1.16.4"
     - REMARK_VERSION="6.0.4"
