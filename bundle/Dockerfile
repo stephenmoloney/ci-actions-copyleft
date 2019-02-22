@@ -27,11 +27,29 @@ LABEL \
 
 RUN \
     apk add --no-cache \
-      bash='4.4.19-r1'
+      bash='4.4.19-r1' \
+      python2='2.7.15-r3' \
+      py-setuptools='40.6.3-r0'
+
+COPY --from=smoloney/ci-actions-yamllint:1.15.0 /yamllint/LICENSE /licenses/yamllint/
+COPY --from=smoloney/ci-actions-yamllint:1.15.0 /yamllint/README.rst /licenses/yamllint/
+COPY --from=smoloney/ci-actions-yamllint:1.15.0 /usr/bin/yamllint /usr/bin/yamllint
+COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /shellcheck/LICENSE.txt /licenses/shellcheck/
+COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /shellcheck/README.txt /licenses/shellcheck/
+COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /usr/bin/shellcheck /usr/bin/shellcheck
+COPY --from=smoloney/ci-actions-hadolint:1.16.0 /hadolint/LICENSE /licenses/hadolint/
+COPY --from=smoloney/ci-actions-hadolint:1.16.0 /hadolint/README.md /licenses/hadolint/
+COPY --from=smoloney/ci-actions-hadolint:1.16.0 /usr/bin/hadolint /usr/bin/hadolint
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
-    # apk del ?
+#    git clone "${REPO}" /yamllint && \
+#    cd /yamllint && \
+#    git checkout "tags/v${VERSION}" && \
+#    pip install .
+    chmod +x /usr/bin/yamllint && \
+    chmod +x /usr/bin/shellcheck && \
+    chmod +x /usr/bin/hadolint
 
 COPY *.sh /entrypoint/
 RUN \
