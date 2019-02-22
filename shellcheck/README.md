@@ -27,7 +27,7 @@ action "shellcheck" {
 ### Gitlab-CI workflow example
 
 ```shell
-docker run --rm -v "${PWD}":/ci-actions-copyleft/workspace smoloney/ci-actions-shellcheck:latest \
+docker run --rm -v "${PWD}":/ci-actions/workspace smoloney/ci-actions-shellcheck:latest \
   --exclude='./non-compliant-script.sh' \
   --file-glob='*.sh' \
   --exec-args='shellcheck -x'

@@ -24,7 +24,7 @@ See the table below of links to `README.md` files for detailed information on ea
 ### Gitlab-CI workflow example (yamllint lint)
 
 ```shell
-docker run --rm -v ${PWD}:/ci-actions-copyleft/workspace \
+docker run --rm -v ${PWD}:/ci-actions/workspace \
   smoloney/ci-actions-bundle-copyleft:latest \
   --file-glob='*.y*ml' \
   --exec-args='yamllint --strict --config-file=.yamllint.yml'
@@ -33,7 +33,7 @@ docker run --rm -v ${PWD}:/ci-actions-copyleft/workspace \
 ### Gitlab-CI workflow example (shellcheck lint)
 
 ```shell
-docker run --rm -v ${PWD}:/ci-actions-copyleft/workspace \
+docker run --rm -v ${PWD}:/ci-actions/workspace \
   smoloney/ci-actions-bundle-copyleft:latest \
   --file-glob='*.sh' \
   --exec-args='shellcheck -x'
@@ -42,7 +42,7 @@ docker run --rm -v ${PWD}:/ci-actions-copyleft/workspace \
 ### Gitlab-CI workflow example (hadolint lint)
 
 ```shell
-docker run --rm -v ${PWD}:/ci-actions-copyleft/workspace \
+docker run --rm -v ${PWD}:/ci-actions/workspace \
   smoloney/ci-actions-bundle-copyleft:latest \
   --file-glob='Dockerfile*' \
   --exec-args='hadolint --config ./.hadolint.yml'

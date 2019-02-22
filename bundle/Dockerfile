@@ -1,4 +1,4 @@
-FROM python:3.7-alpine3.8
+FROM alpine:3.9
 
 ARG VERSION="latest"
 ARG YAMLLINT_VERSION="1.15.0"
@@ -28,12 +28,11 @@ LABEL \
 RUN \
     apk add --no-cache \
       bash='4.4.19-r1' \
+      git='2.20.1-r0' \
       python2='2.7.15-r3' \
-      py-setuptools='40.6.3-r0'
+      py-setuptools='40.6.3-r0' \
+      py2-pip='18.1-r0'
 
-COPY --from=smoloney/ci-actions-yamllint:1.15.0 /yamllint/LICENSE /licenses/yamllint/
-COPY --from=smoloney/ci-actions-yamllint:1.15.0 /yamllint/README.rst /licenses/yamllint/
-COPY --from=smoloney/ci-actions-yamllint:1.15.0 /usr/bin/yamllint /usr/bin/yamllint
 COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /shellcheck/LICENSE.txt /licenses/shellcheck/
 COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /shellcheck/README.txt /licenses/shellcheck/
 COPY --from=smoloney/ci-actions-shellcheck:0.6.0 /usr/bin/shellcheck /usr/bin/shellcheck
@@ -43,13 +42,16 @@ COPY --from=smoloney/ci-actions-hadolint:1.16.0 /usr/bin/hadolint /usr/bin/hadol
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN \
-#    git clone "${REPO}" /yamllint && \
-#    cd /yamllint && \
-#    git checkout "tags/v${VERSION}" && \
-#    pip install .
-    chmod +x /usr/bin/yamllint && \
+    git clone https://github.com/adrienverge/yamllint.git /yamllint && \
+    cd /yamllint && \
+    git checkout "tags/v${YAMLLINT_VERSION}" && \
+    pip install . && \
+    mkdir -p /licenses/yamllint/ && \
+    cp /yamllint/LICENSE /licenses/yamllint/ && \
+    cp  /yamllint/README.rst /licenses/yamllint/ && \
     chmod +x /usr/bin/shellcheck && \
-    chmod +x /usr/bin/hadolint
+    chmod +x /usr/bin/hadolint && \
+    apk del git py2-pip
 
 COPY *.sh /entrypoint/
 RUN \

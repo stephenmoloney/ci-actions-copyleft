@@ -27,7 +27,7 @@ action "hadolint" {
 ### Gitlab-CI workflow example
 
 ```shell
-docker run --rm -v "${PWD}":/ci-actions-copyleft/workspace smoloney/ci-actions-hadolint:latest \
+docker run --rm -v "${PWD}":/ci-actions/workspace smoloney/ci-actions-hadolint:latest \
   --file-glob='Dockerfile*' \
   --exec-args='hadolint --config ./.hadolint.yml'
 ```

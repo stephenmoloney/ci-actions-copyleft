@@ -27,12 +27,15 @@ action "yamllint" {
 ### Gitlab-CI workflow example
 
 ```shell
-docker run --rm -v "${PWD}":/ci-actions-copyleft/workspace smoloney/ci-actions-yamllint:latest \
+docker run --rm -v "${PWD}":/ci-actions/workspace smoloney/ci-actions-yamllint:latest \
   --exclude='./test/ci-yamllint/ignore-dir' \
   --exclude='./test/ci-yamllint/ignore-fail.yaml' \
   --file-glob='*.y*ml' \
   --exec-args='yamllint --strict --config-file=.yamllint.yml'
 ```
+
+docker run --rm -v "${PWD}":/ci-actions/workspace smoloney/ci-actions-yamllint:latest \
+  --exec-args='yamllint --strict --config-file=.yamllint.yml'
 
 ## Arguments
 
