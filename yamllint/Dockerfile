@@ -24,7 +24,6 @@ RUN \
       bash='4.4.19-r1' \
       git='2.20.1-r0' \
       python2='2.7.15-r3' \
-      python2='2.7.15-r3' \
       py-setuptools='40.6.3-r0' \
       py2-pip='18.1-r0'
 

@@ -21,6 +21,7 @@ jobs:
       script:
         - |
           docker run --rm -v "${PWD}:${WORKSPACE}" "smoloney/ci-actions-prettier:${PRETTIER_VERSION}" \
+            --exclude='./test/ci-yamllint/ignore-fail.yaml' \
             --file-glob='*.y*ml' \
             --exec-args='prettier --check --parser yaml --config ./.prettierrc.yml'
 
